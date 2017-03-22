@@ -1,0 +1,17 @@
+<div>
+  <nav md-tab-nav-bar>
+    <a md-tab-link
+       [routerLink]="['readonly']"
+       routerLinkActive #rla1="routerLinkActive"
+       [active]="rla1.isActive">
+      Readonly
+    </a>
+    <a md-tab-link
+       [routerLink]="['policies']"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      Edit
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
