@@ -3,21 +3,21 @@
     <md-card>
       <h2 md-subheader>Account Options</h2>
 
-      <md-select placeholder="Login Identifier Conflict" [(ngModel)]="policies.accountOptions.loginIdentifierConflict">
+      <md-select placeholder="Login Identifier Conflict" [(ngModel)]="policies.accountOptions.loginIdentifierConflict" disabled="isEditMode">
         <md-option *ngFor="let state of loginIdentifierConflict" [value]="state.code">{{ state.name }}</md-option>
       </md-select>
       <br>
-      <md-checkbox [(ngModel)]="policies.accountOptions.verifyEmail">Verify Email</md-checkbox>
-      <md-checkbox [(ngModel)]="policies.accountOptions.verifyProviderEmail">Verify Provider Email</md-checkbox>
-      <md-checkbox [(ngModel)]="policies.accountOptions.allowUnverifiedLogin">Allow Unverified Login</md-checkbox>
-      <md-checkbox [(ngModel)]="policies.accountOptions.preventLoginIDHarvesting">Prevent Login ID Harvesting
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.accountOptions.verifyEmail" disabled="isEditMode">Verify Email</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.accountOptions.verifyProviderEmail" disabled="isEditMode">Verify Provider Email</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.accountOptions.allowUnverifiedLogin">Allow Unverified Login</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.accountOptions.preventLoginIDHarvesting">Prevent Login ID Harvesting
       </md-checkbox>
-      <md-checkbox [(ngModel)]="policies.accountOptions.sendWelcomeEmail">Send Welcome Email</md-checkbox>
-      <md-checkbox [(ngModel)]="policies.accountOptions.sendAccountDeletedEmail">Send Account Deleted Email
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.accountOptions.sendWelcomeEmail">Send Welcome Email</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.accountOptions.sendAccountDeletedEmail">Send Account Deleted Email
       </md-checkbox>
       <br>
       <md-input-container>
-        <input mdInput [(ngModel)]="policies.accountOptions.defaultLanguage" placeholder="Default language">
+        <input disabled="isEditMode" mdInput [(ngModel)]="policies.accountOptions.defaultLanguage" placeholder="Default language">
       </md-input-container>
       <label for="loginIdentifiers">
         <div>Login Identifiers:</div>
@@ -34,25 +34,25 @@
 
     <md-card>
       <h2 md-subheader>Registration</h2>
-      <md-checkbox [(ngModel)]="policies.registration.requireCaptcha">Require Captcha</md-checkbox>
-      <md-checkbox [(ngModel)]="policies.registration.requireSecurityQuestion">Require Security Question</md-checkbox>
-      <md-checkbox [(ngModel)]="policies.registration.requireLoginID">Require Login ID</md-checkbox>
-      <md-checkbox [(ngModel)]="policies.registration.enforceCoppa">Enforce Coppa</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.registration.requireCaptcha">Require Captcha</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.registration.requireSecurityQuestion">Require Security Question</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.registration.requireLoginID">Require Login ID</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.registration.enforceCoppa">Enforce Coppa</md-checkbox>
     </md-card>
 
 
     <md-card>
       <h2 md-subheader>Password Strength</h2>
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.passwordComplexity.minLength" placeholder="Min Length">
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.passwordComplexity.minLength" placeholder="Min Length">
       </md-input-container>
 
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.passwordComplexity.minCharGroups"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.passwordComplexity.minCharGroups"
                placeholder="Min Character Groups">
       </md-input-container>
       <md-input-container>
-      <textarea mdInput [(ngModel)]="policies.passwordComplexity.regExp"
+      <textarea disabled="isEditMode"mdInput [(ngModel)]="policies.passwordComplexity.regExp"
                 placeholder="Min Character Groups"></textarea>
       </md-input-container>
     </md-card>
@@ -66,20 +66,20 @@
       <br>
 
       <md-input-container>
-        <input mdInput [(ngModel)]="policies.gigyaPlugins.defaultRegScreenSet"
+        <input disabled="isEditMode" mdInput [(ngModel)]="policies.gigyaPlugins.defaultRegScreenSet"
                placeholder="Default Registration Screen Settings">
       </md-input-container>
 
       <md-input-container>
-        <input mdInput [(ngModel)]="policies.gigyaPlugins.defaultMobileRegScreenSet"
+        <input disabled="isEditMode" mdInput [(ngModel)]="policies.gigyaPlugins.defaultMobileRegScreenSet"
                placeholder="Default Registration Screen Settings">
       </md-input-container>
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.gigyaPlugins.sessionExpiration"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.gigyaPlugins.sessionExpiration"
                placeholder="Session Expiration Settings">
       </md-input-container>
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.gigyaPlugins.rememberSessionExpiration"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.gigyaPlugins.rememberSessionExpiration"
                placeholder="Remember Session Expiration Settings">
       </md-input-container>
 
@@ -92,38 +92,38 @@
       <h4 md-subheader>Password</h4>
 
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.security.passwordChangeInterval"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.security.passwordChangeInterval"
                placeholder="Password Change Interval">
       </md-input-container>
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.security.passwordHistorySize"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.security.passwordHistorySize"
                placeholder="Password History Size">
       </md-input-container>
     </md-card>
     <md-card>
       <h4 md-subheader>IP Lockout</h4>
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.security.ipLockout.hourlyFailedLoginThreshold"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.security.ipLockout.hourlyFailedLoginThreshold"
                placeholder="Hourly Failed Login Threshold">
       </md-input-container>
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.security.ipLockout.lockoutTimeSec"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.security.ipLockout.lockoutTimeSec"
                placeholder="Lockout Time (seconds)">
       </md-input-container>
     </md-card>
     <md-card>
       <h4 md-subheader>Account Lockout</h4>
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.security.accountLockout.failedLoginThreshold  "
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.security.accountLockout.failedLoginThreshold  "
                placeholder="Failed Login Threshold">
       </md-input-container>
 
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.security.accountLockout.lockoutTimeSec"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.security.accountLockout.lockoutTimeSec"
                placeholder="Lockout Time Seconds">
       </md-input-container>
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.security.accountLockout.failedLoginResetSec"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.security.accountLockout.failedLoginResetSec"
                placeholder="Failed Login Reset Seconds">
       </md-input-container>
     </md-card>
@@ -132,44 +132,44 @@
   <div class="section">
     <md-card class="email-verification">
       <h2>Email Verification</h2>
-      <md-checkbox [(ngModel)]="policies.emailVerification.autoLogin">Auto Login</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.emailVerification.autoLogin">Auto Login</md-checkbox>
       <br>
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.emailVerification.verificationEmailExpiration"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.emailVerification.verificationEmailExpiration"
                placeholder="Verification Email Expiration">
       </md-input-container>
       <md-input-container>
-        <input mdInput [(ngModel)]="policies.emailVerification.nextURL"
+        <input disabled="isEditMode" mdInput [(ngModel)]="policies.emailVerification.nextURL"
                placeholder="Next URL">
       </md-input-container>
       <md-input-container>
-        <input  mdInput [(ngModel)]="policies.emailVerification.defaultLanguage"
+        <input disabled="isEditMode"  mdInput [(ngModel)]="policies.emailVerification.defaultLanguage"
                placeholder="Default Language">
       </md-input-container>
       <md-input-container>
-        <textarea  mdInput [(ngModel)]="policies.emailVerification.emailTemplates.en"
-               placeholder="Default Language"></textarea>
+        <textarea disabled="isEditMode" mdInput [(ngModel)]="policies.emailVerification.emailTemplates.en"
+               placeholder="Email Template"></textarea>
       </md-input-container>
 
     </md-card>
 
     <md-card class="email-verification">
       <h2>Password Reset</h2>
-      <md-checkbox [(ngModel)]="policies.passwordReset.requireSecurityCheck">Require Security Check</md-checkbox>
-      <md-checkbox [(ngModel)]="policies.passwordReset.sendConfirmationEmail">Send Confirmation Email</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.passwordReset.requireSecurityCheck">Require Security Check</md-checkbox>
+      <md-checkbox disabled="isEditMode" [(ngModel)]="policies.passwordReset.sendConfirmationEmail">Send Confirmation Email</md-checkbox>
       <br>
 
       <md-input-container>
-        <input type="number" mdInput [(ngModel)]="policies.passwordReset.tokenExpiration"
+        <input disabled="isEditMode" type="number" mdInput [(ngModel)]="policies.passwordReset.tokenExpiration"
                placeholder="Token Expiration">
       </md-input-container>
       <md-input-container>
-        <input  mdInput [(ngModel)]="policies.passwordReset.defaultLanguage"
+        <input disabled="isEditMode"  mdInput [(ngModel)]="policies.passwordReset.defaultLanguage"
                 placeholder="Default Language">
       </md-input-container>
       <md-input-container>
-        <textarea  mdInput [(ngModel)]="policies.passwordReset.emailTemplates.en"
-                   placeholder="Default Language"></textarea>
+        <textarea disabled="isEditMode" mdInput [(ngModel)]="policies.passwordReset.emailTemplates.en"
+                   placeholder="Email Template"></textarea>
       </md-input-container>
 
     </md-card>

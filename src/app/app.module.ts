@@ -1,24 +1,41 @@
 import 'hammerjs';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import { MaterialModule } from '@angular/material';
-import { AppComponent } from './app.component';
+import {MaterialModule} from '@angular/material';
+import {AppComponent} from './app.component';
 
-import { HttpModule, JsonpModule } from '@angular/http';
-import { PolicieComponent } from './policie/policie.component';
+import {HttpModule, JsonpModule} from '@angular/http';
+import {PolicieComponent} from './policie/policie.component';
 import {PoliciesService} from "./policies.service";
-import { RouterModule, Routes } from '@angular/router';
-import { PoliciesReadonlyComponent } from './policies-readonly/policies-readonly.component';
+import {RouterModule, Routes} from '@angular/router';
+import {PoliciesReadonlyComponent} from './policies-readonly/policies-readonly.component';
+
 
 const appRoutes: Routes = [
-  { path: 'policies', component: PolicieComponent },
-  { path: 'readonly', component: PoliciesReadonlyComponent },
+  {
+    path: 'policies',
+    component: PolicieComponent,
+    data: {
+      isEditMode: false
+    }
+  },
+  {
+    path: 'readonly',
+    component: PolicieComponent,
+    data: {
+      isEditMode: true
+    }
+  },
 
-  { path: '',
+  {
+    path: '',
     redirectTo: '/readonly',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: {
+      isEditMode: false
+    }
   }
 ];
 
@@ -39,4 +56,5 @@ const appRoutes: Routes = [
   providers: [PoliciesService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

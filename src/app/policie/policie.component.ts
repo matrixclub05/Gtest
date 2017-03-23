@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+
 import {PoliciesService} from "../policies.service";
 import {
   Policies, LoginIdentifierConflict, LoginIdentifiers, AccountOptions, SessionExpiration
 } from "../model/policies";
-
+import {ActivatedRoute, Data} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-policie',
@@ -12,27 +14,34 @@ import {
   providers: [PoliciesService]
 })
 export class PolicieComponent implements OnInit {
-  errorMessage: any;
-  policies: Policies = null;
-  loginIdentifierConflict = LoginIdentifierConflict;
-  loginIdentifiers = LoginIdentifiers;
-  sessionExpiration = SessionExpiration;
+  private errorMessage: any;
+  private policies: Policies = null;
+  private loginIdentifierConflict = LoginIdentifierConflict;
+  private loginIdentifiers = LoginIdentifiers;
+  private sessionExpiration = SessionExpiration;
+  private isEditMode: Observable<Data>;
 
-  constructor(private policiesService: PoliciesService) {
+
+  constructor(private policiesService: PoliciesService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.policiesService.getPolicies()
-      .subscribe(
-        (data) => {
+    this.route.data.subscribe((data: any = {})=>{
+        this.isEditMode = data.isEditMode;
+        this.getPolicies();
+      });
+  }
 
+  getPolicies(){
+    this.policiesService.getPolicies()
+      .subscribe((data) => {
           this.policies = <Policies>data;
         },
         error => this.errorMessage = <any>error);
   }
 
   saveData() {
-    debugger;
+
     let data = <Policies>{
       registration: this.policies.registration,
       gigyaPlugins: this.policies.gigyaPlugins,
